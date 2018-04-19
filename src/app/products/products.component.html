@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div *ngIf="products && products.length">
+        <h2>Products</h2>
+        <div class="products">
+          <div *ngFor="let product of products" class="card">
+            <a routerLink="/products/{{product.id}}">
+              <div class="flex align-items-center space-between">
+                <div>
+                  <img src="{{product.img}}" height="100">
+                  <span class="right">{{product.id}}</span> {{product.name}}
+                </div>
+                <div>
+                  {{product.price | currency}}
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

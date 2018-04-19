@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-9 col-sm-12">
+      <div *ngIf="product">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="{{product.img}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text">{{product.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-12">
+      <div *ngIf="relatedProducts && relatedProducts.length">
+        <h2>Related Products</h2>
+        <div class="products">
+          <div *ngFor="let product of relatedProducts" class="card">
+            <a routerLink="/products/{{product.id}}">
+              <img src="{{product.img}}" height="100">
+              <span class="badge">{{product.id}}</span> {{product.name}}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
